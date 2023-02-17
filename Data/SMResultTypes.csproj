@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net7.0</TargetFrameworks>
+	<LangVersion>11</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Deprecated\**" />
+    <Compile Remove="NOT-IN-PROJECT-Deprecated\**" />
+    <EmbeddedResource Remove="Deprecated\**" />
+    <EmbeddedResource Remove="NOT-IN-PROJECT-Deprecated\**" />
+    <None Remove="Deprecated\**" />
+    <None Remove="NOT-IN-PROJECT-Deprecated\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="System.IO.Pipelines" Version="7.0.0" />
+    <PackageReference Include="System.IO.Ports" Version="7.0.0" />
+    <PackageReference Include="System.Linq.Async" Version="6.0.1" />
+  </ItemGroup>
+
+  <PropertyGroup>
+	  <Description>
+		  This Library implements Option and Either as Result types for error handling
+		  With Support for Linq query syntax
+	  </Description>
+  </PropertyGroup>
+</Project>
