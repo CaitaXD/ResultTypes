@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace SMData;
+namespace SMResultTypes;
 
 public readonly struct None : IEquatable<None>
 {
@@ -16,7 +16,17 @@ public readonly struct None : IEquatable<None>
     }
     public override string ToString()
     {
-        return "None";
+        return"None";
     }
     public static implicit operator bool(None _) => false;
+
+    public static bool operator ==(None left, None right)
+    {
+        return left.Equals(right);
+    }
+
+    public static bool operator !=(None left, None right)
+    {
+        return!(left == right);
+    }
 }

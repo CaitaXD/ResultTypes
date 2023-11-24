@@ -1,11 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Deletes Local Cahce so i dont habe to keep changing version number -->
+  <Target Name="DeleteLocalCache" BeforeTargets="Pack">
+    <RemoveDir Directories="$(NugetPackageRoot)/$(PackageId.ToLower())/1.0.0-local" />
+  </Target>
   <PropertyGroup>
-    <TargetFrameworks>net7.0</TargetFrameworks>
-	<LangVersion>11</LangVersion>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+    <LangVersion>11</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Configurations>Debug;Release</Configurations>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Deprecated\**" />
@@ -16,17 +22,15 @@
     <None Remove="NOT-IN-PROJECT-Deprecated\**" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
-    <PackageReference Include="MySql.EntityFrameworkCore" Version="6.0.7" />
-    <PackageReference Include="System.IO.Pipelines" Version="7.0.0" />
-    <PackageReference Include="System.IO.Ports" Version="7.0.0" />
+    <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
+    <PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.1" />
     <PackageReference Include="System.Linq.Async" Version="6.0.1" />
+    <PackageReference Include="System.Memory" Version="4.5.5" />
   </ItemGroup>
-
   <PropertyGroup>
-	  <Description>
-		  This Library implements Option and Either as Result types for error handling
-		  With Support for Linq query syntax
-	  </Description>
+    <Description>
+            This Library implements Option and Either as Result types for error handling
+        </Description>
+    <Version>1.0.0.13</Version>
   </PropertyGroup>
 </Project>

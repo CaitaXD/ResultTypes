@@ -1,4 +1,4 @@
-﻿namespace SMData;
+﻿namespace SMResultTypes;
 
 public interface IEither<out TErr, out TOk> : IOption<TOk>
 {
